@@ -11,31 +11,52 @@ namespace Tic_Tac_Toe
             InitializeComponent();
         }
 
+        private void Won()
+        {
+            foreach (Button button in tableLayoutPanel.Controls)
+            {
+                button.Enabled = false;
+            }
+            MessageBox.Show("Gewonnen");
+        }
+
         private bool IsSameText(string string1, string string2, string string3) => string.Compare(string1, string2) == 0 && string.Compare(string2, string3) == 0;
 
         private bool CheckIfSomebodyWons()
         {
-            if (string.IsNullOrEmpty(buttonField11.Text) ||
-                string.IsNullOrEmpty(buttonField12.Text) ||
-                string.IsNullOrEmpty(buttonField13.Text) ||
-                string.IsNullOrEmpty(buttonField21.Text) ||
-                string.IsNullOrEmpty(buttonField22.Text) ||
-                string.IsNullOrEmpty(buttonField23.Text) ||
-                string.IsNullOrEmpty(buttonField31.Text) ||
-                string.IsNullOrEmpty(buttonField32.Text) ||
-                string.IsNullOrEmpty(buttonField33.Text)
-                )
+            if (!string.IsNullOrEmpty(value: buttonField11.Text) && !string.IsNullOrEmpty(value: buttonField12.Text) && !string.IsNullOrEmpty(value: buttonField13.Text))
             {
-                return false;
+                return IsSameText(string1: buttonField11.Text, string2: buttonField12.Text, string3: buttonField13.Text);
             }
-            return IsSameText(buttonField11.Text, buttonField12.Text, buttonField13.Text) ||
-                IsSameText(buttonField21.Text, buttonField22.Text, buttonField23.Text) ||
-                IsSameText(buttonField31.Text, buttonField32.Text, buttonField33.Text) ||
-                IsSameText(buttonField11.Text, buttonField21.Text, buttonField31.Text) ||
-                IsSameText(buttonField12.Text, buttonField22.Text, buttonField32.Text) ||
-                IsSameText(buttonField13.Text, buttonField23.Text, buttonField33.Text) ||
-                IsSameText(buttonField11.Text, buttonField22.Text, buttonField33.Text) ||
-                IsSameText(buttonField13.Text, buttonField22.Text, buttonField31.Text);
+            if (!string.IsNullOrEmpty(value: buttonField21.Text) && !string.IsNullOrEmpty(value: buttonField22.Text) && !string.IsNullOrEmpty(value: buttonField23.Text))
+            {
+                return IsSameText(string1: buttonField21.Text, string2: buttonField22.Text, string3: buttonField23.Text);
+            }
+            if (!string.IsNullOrEmpty(value: buttonField31.Text) && !string.IsNullOrEmpty(value: buttonField32.Text) && !string.IsNullOrEmpty(value: buttonField33.Text))
+            {
+                return IsSameText(string1: buttonField31.Text, string2: buttonField32.Text, string3: buttonField33.Text);
+            }
+            if (!string.IsNullOrEmpty(value: buttonField11.Text) && !string.IsNullOrEmpty(value: buttonField21.Text) && !string.IsNullOrEmpty(value: buttonField31.Text))
+            {
+                return IsSameText(string1: buttonField11.Text, string2: buttonField21.Text, string3: buttonField31.Text);
+            }
+            if (!string.IsNullOrEmpty(value: buttonField12.Text) && !string.IsNullOrEmpty(value: buttonField22.Text) && !string.IsNullOrEmpty(value: buttonField32.Text))
+            {
+                return IsSameText(string1: buttonField12.Text, string2: buttonField22.Text, string3: buttonField32.Text);
+            }
+            if (!string.IsNullOrEmpty(value: buttonField13.Text) && !string.IsNullOrEmpty(value: buttonField23.Text) && !string.IsNullOrEmpty(value: buttonField33.Text))
+            {
+                return IsSameText(string1: buttonField13.Text, string2: buttonField23.Text, string3: buttonField33.Text);
+            }
+            if (!string.IsNullOrEmpty(value: buttonField11.Text) && !string.IsNullOrEmpty(value: buttonField22.Text) && !string.IsNullOrEmpty(value: buttonField33.Text))
+            {
+                return IsSameText(string1: buttonField11.Text, string2: buttonField22.Text, string3: buttonField33.Text);
+            }
+            if (!string.IsNullOrEmpty(value: buttonField13.Text) && !string.IsNullOrEmpty(value: buttonField22.Text) && !string.IsNullOrEmpty(value: buttonField31.Text))
+            {
+                return IsSameText(string1: buttonField13.Text, string2: buttonField22.Text, string3: buttonField31.Text);
+            }
+            return false;
         }
 
         private void ButtonField11_Click(object sender, EventArgs e)
@@ -45,7 +66,7 @@ namespace Tic_Tac_Toe
             buttonField11.Enabled = false;
             if (CheckIfSomebodyWons())
             {
-                MessageBox.Show("Gewonnen");
+                Won();
             }
         }
 
@@ -56,7 +77,7 @@ namespace Tic_Tac_Toe
             buttonField12.Enabled = false;
             if (CheckIfSomebodyWons())
             {
-                MessageBox.Show("Gewonnen");
+                Won();
             }
         }
 
@@ -67,7 +88,7 @@ namespace Tic_Tac_Toe
             buttonField13.Enabled = false;
             if (CheckIfSomebodyWons())
             {
-                MessageBox.Show("Gewonnen");
+                Won();
             }
         }
 
@@ -78,7 +99,7 @@ namespace Tic_Tac_Toe
             buttonField21.Enabled = false;
             if (CheckIfSomebodyWons())
             {
-                MessageBox.Show("Gewonnen");
+                Won();
             }
         }
 
@@ -89,7 +110,7 @@ namespace Tic_Tac_Toe
             buttonField22.Enabled = false;
             if (CheckIfSomebodyWons())
             {
-                MessageBox.Show("Gewonnen");
+                Won();
             }
         }
 
@@ -100,7 +121,7 @@ namespace Tic_Tac_Toe
             buttonField23.Enabled = false;
             if (CheckIfSomebodyWons())
             {
-                MessageBox.Show("Gewonnen");
+                Won();
             }
         }
 
@@ -111,7 +132,7 @@ namespace Tic_Tac_Toe
             buttonField31.Enabled = false;
             if (CheckIfSomebodyWons())
             {
-                MessageBox.Show("Gewonnen");
+                Won();
             }
         }
 
@@ -122,7 +143,7 @@ namespace Tic_Tac_Toe
             buttonField32.Enabled = false;
             if (CheckIfSomebodyWons())
             {
-                MessageBox.Show("Gewonnen");
+                Won();
             }
         }
 
@@ -133,7 +154,16 @@ namespace Tic_Tac_Toe
             buttonField33.Enabled = false;
             if (CheckIfSomebodyWons())
             {
-                MessageBox.Show("Gewonnen");
+                Won();
+            }
+        }
+
+        private void ToolStripButtonNewGame_Click(object sender, EventArgs e)
+        {
+            foreach (Button button in tableLayoutPanel.Controls)
+            {
+                button.Enabled = true;
+                button.Text = string.Empty;
             }
         }
     }
