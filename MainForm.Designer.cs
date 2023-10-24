@@ -30,9 +30,10 @@ namespace Tic_Tac_Toe
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tabPageGame3x3 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.buttonField33 = new System.Windows.Forms.Button();
             this.buttonField32 = new System.Windows.Forms.Button();
             this.buttonField31 = new System.Windows.Forms.Button();
@@ -46,18 +47,20 @@ namespace Tic_Tac_Toe
             this.toolStripContainer = new System.Windows.Forms.ToolStripContainer();
             this.tabControlGame = new System.Windows.Forms.TabControl();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonNewGame = new System.Windows.Forms.ToolStripButton();
             this.tabPageGame3x3.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel.SuspendLayout();
             this.toolStripContainer.BottomToolStripPanel.SuspendLayout();
             this.toolStripContainer.ContentPanel.SuspendLayout();
             this.toolStripContainer.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer.SuspendLayout();
             this.tabControlGame.SuspendLayout();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPageGame3x3
             // 
-            this.tabPageGame3x3.Controls.Add(this.tableLayoutPanel1);
+            this.tabPageGame3x3.Controls.Add(this.tableLayoutPanel);
             this.tabPageGame3x3.Location = new System.Drawing.Point(4, 22);
             this.tabPageGame3x3.Name = "tabPageGame3x3";
             this.tabPageGame3x3.Padding = new System.Windows.Forms.Padding(3);
@@ -68,30 +71,30 @@ namespace Tic_Tac_Toe
             this.tabPageGame3x3.ToolTipText = "Game 3x3";
             this.tabPageGame3x3.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanel
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Controls.Add(this.buttonField33, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.buttonField32, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.buttonField31, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.buttonField23, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.buttonField22, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.buttonField21, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.buttonField13, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.buttonField12, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.buttonField11, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(218, 218);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel.ColumnCount = 3;
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel.Controls.Add(this.buttonField33, 2, 2);
+            this.tableLayoutPanel.Controls.Add(this.buttonField32, 1, 2);
+            this.tableLayoutPanel.Controls.Add(this.buttonField31, 0, 2);
+            this.tableLayoutPanel.Controls.Add(this.buttonField23, 2, 1);
+            this.tableLayoutPanel.Controls.Add(this.buttonField22, 1, 1);
+            this.tableLayoutPanel.Controls.Add(this.buttonField21, 0, 1);
+            this.tableLayoutPanel.Controls.Add(this.buttonField13, 2, 0);
+            this.tableLayoutPanel.Controls.Add(this.buttonField12, 1, 0);
+            this.tableLayoutPanel.Controls.Add(this.buttonField11, 0, 0);
+            this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel.Name = "tableLayoutPanel";
+            this.tableLayoutPanel.RowCount = 3;
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(218, 218);
+            this.tableLayoutPanel.TabIndex = 0;
             // 
             // buttonField33
             // 
@@ -276,11 +279,22 @@ namespace Tic_Tac_Toe
             // toolStrip
             // 
             this.toolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonNewGame});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(232, 25);
             this.toolStrip.Stretch = true;
             this.toolStrip.TabIndex = 0;
+            // 
+            // toolStripButtonNewGame
+            // 
+            this.toolStripButtonNewGame.Image = global::Tic_Tac_Toe.Properties.Resources.fatcow_asterisk_yellow_16px;
+            this.toolStripButtonNewGame.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonNewGame.Name = "toolStripButtonNewGame";
+            this.toolStripButtonNewGame.Size = new System.Drawing.Size(84, 22);
+            this.toolStripButtonNewGame.Text = "&New game";
+            this.toolStripButtonNewGame.Click += new System.EventHandler(this.ToolStripButtonNewGame_Click);
             // 
             // MainForm
             // 
@@ -288,11 +302,13 @@ namespace Tic_Tac_Toe
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(232, 297);
             this.Controls.Add(this.toolStripContainer);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tic Zac Toe";
             this.tabPageGame3x3.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel.ResumeLayout(false);
+            this.tableLayoutPanel.PerformLayout();
             this.toolStripContainer.BottomToolStripPanel.ResumeLayout(false);
             this.toolStripContainer.BottomToolStripPanel.PerformLayout();
             this.toolStripContainer.ContentPanel.ResumeLayout(false);
@@ -301,6 +317,8 @@ namespace Tic_Tac_Toe
             this.toolStripContainer.ResumeLayout(false);
             this.toolStripContainer.PerformLayout();
             this.tabControlGame.ResumeLayout(false);
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -312,7 +330,7 @@ namespace Tic_Tac_Toe
         private System.Windows.Forms.ToolStripContainer toolStripContainer;
         private System.Windows.Forms.TabControl tabControlGame;
         private System.Windows.Forms.TabPage tabPageGame3x3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.Button buttonField33;
         private System.Windows.Forms.Button buttonField32;
         private System.Windows.Forms.Button buttonField31;
@@ -323,6 +341,7 @@ namespace Tic_Tac_Toe
         private System.Windows.Forms.Button buttonField12;
         private System.Windows.Forms.Button buttonField11;
         private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.ToolStripButton toolStripButtonNewGame;
     }
 }
 
